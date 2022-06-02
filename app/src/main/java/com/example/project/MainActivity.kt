@@ -12,7 +12,6 @@ class MainActivity : AppCompatActivity() {
         val x: String = "Surgery"
         var flag: String
         var flag1: String
-        var flag2: String
         var flagGender: String
 
         val spinnerDept: Spinner = findViewById(R.id.spChooseDept)
@@ -25,40 +24,34 @@ class MainActivity : AppCompatActivity() {
                 flag = Dept.get(p2)
             }
 
+
             override fun onNothingSelected(p0: AdapterView<*>?) {
                 //Empty
             }
         }
 
+
         val spinnerDr: Spinner = findViewById(R.id.spChooseDr)
-
-        if(x == "Surgery"){
-            var x1 = arrayOf("Dr. Mike Ross", "Dr. Emma Watson", "Dr. Bob King")
-            spinnerDr.adapter =
-                ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, x1)
-            spinnerDr.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
-                override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-                    flag1 = x1.get(p2)
-                }
-
-                override fun onNothingSelected(p0: AdapterView<*>?) {
-                    //Empty
-                }
+        var Dr = arrayOf("Dr. Mike Ross", "Dr. Emily Watson", "Dr. Harvey Specter", "Dr. Dona King",
+        "Dr. Omar Ahmad", "Dr. Max Goodwin ", "Dr. Iggy Frome", "Dr.Cassian Shin",
+        "Dr. Yousef Rashid", "Dr. Khaled Ahmad", "Dr. Rachel Zane", "Dr. Dana Soctt", "Dr. Katrina Bennet"
+        , "Dr. Zoe Lawford", "Dr. ", "Michael Gray", "Dr. Sara Kharim", "Dr. Joud Massoud",
+        "Dr. Tareq Saif")
+        spinnerDr.adapter =
+            ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, Dr)
+        spinnerDr.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
+            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+                flag1 = Dr.get(p2)
             }
-        }else if(x == "Orthopaedics"){
-            var x2 = arrayOf("Dr. Harvey Specter", "Dr. Tomas ", "Dr. Lama Ahmad")
-            spinnerDr.adapter =
-                ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, x2)
-            spinnerDr.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
-                override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-                    flag2 = x2.get(p2)
-                }
 
-                override fun onNothingSelected(p0: AdapterView<*>?) {
-                    //Empty
-                }
+
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+                //Empty
             }
         }
+
+
+
 
         val spinnerGender: Spinner = findViewById(R.id.spGender)
         var Gender = arrayOf("Male", "Female")
